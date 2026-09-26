@@ -1,0 +1,21 @@
+.country {
+  border: 2px solid green;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* ভিজিট না করলে বা বাটনে ব্যবহারের জন্য বর্ডার স্টাইল */
+.country-border {
+  border: 4px solid blue;
+}
+
+.country-visited {
+  background-color: #d1fae5; /* হালকা সবুজ ব্যাকগ্রাউন্ড */
+  border-color: #059669;
+}
+
+.country-unvisited {
+  background-color: #fef3c7; /* হালকা হলুদ ব্যাকগ্রাউন্ড */
+  border: 2px solid red;
+}
