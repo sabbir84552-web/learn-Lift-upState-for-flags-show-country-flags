@@ -7,6 +7,7 @@ import Countries from './components/countries/Countries';
 // import Desh from './components/Desh';
 import Shor from './Shor';
 import type { Cont } from './Types';
+// console.log('countriesPromise');
 
 
 // step-1 :creat a promise to load data 

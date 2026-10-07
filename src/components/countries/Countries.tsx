@@ -4,8 +4,9 @@ import Country from "../country/Country";
 import "../country/country.css";
 import "./Countries.css";
 export interface CountriesProps {
-  countriesPromise: Promise<CountryType[]>;
+  countriesPromise: Promise<CountryType[]>;//countriesPromise
 }
+// console.log('countriesPromise');
 
 export default function Countries({ countriesPromise }: CountriesProps) {
   // const [visitedCountries,setVisitedCountries]=useState<CountryType[]>([])
@@ -15,28 +16,12 @@ export default function Countries({ countriesPromise }: CountriesProps) {
   // }
   const [visitedCountries, setVisitedCountries] = useState<CountryType[]>([]);
   const handleVisitedCountries = (country: CountryType): void => {
-    const isExist = visitedCountries.find(
-      item => item.ccn3?.ccn3 === country.ccn3?.ccn3,
-    );
-   // .find() /.some() methode non primitive data type ar khetre kaj kore 
-   
-    if (isExist) {
-      const remainvisitedCountry = visitedCountries.filter(
-        (c) => c.ccn3?.ccn3 !== country.ccn3?.ccn3,
-      );
-      setVisitedCountries(remainvisitedCountry);
-    }
-
-    // bad way to check object /array check
-    // if (visitedCountries.includes(country)) {
-    //   const remainvisitedCountry=visitedCountries.filter((uposthitupadan)=>uposthitupadan!==country)
-    //   setVisitedCountries(remainvisitedCountry)
-    // }
-    else {
-      const newVisitedCountries = [...visitedCountries, country];
-      setVisitedCountries(newVisitedCountries);
-    }
-  };
+  setVisitedCountries(prev =>
+    prev.some(c => c.ccn3?.ccn3 === country.ccn3?.ccn3)
+      ? prev.filter(c => c.ccn3?.ccn3 !== country.ccn3?.ccn3)
+      : [...prev, country]
+  );
+};
   const [visitedFlags, setVisitedFlags] = useState<string[]>([]);
   const handleVisitedFlags = (flag: string): void => {
     console.log("flag dekhi", flag);
